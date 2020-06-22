@@ -1,6 +1,6 @@
 # Creacion de una calculadora en Python
 from tkinter import *
-import funciones_calc 
+import funciones_calc
 
 # creacion de raiz para el frame principal
 raiz = Tk()
@@ -19,7 +19,10 @@ pantalla = Entry(miFrame, textvariable = numerosPantalla)
 '''pantalla.grid(row = 1, column=1, padx = 10, pady = 10,columnspan = 4)'''
 pantalla.grid(row = 1, column=1, padx = 10, pady = 10)
 pantalla.config(background = "black", fg = "white", justify = "right")
-pantalla.place(x=10, y=10, height=30, width=200) 
+pantalla.place(x=10, y=10, height=30, width=200)
+# el objeto que llamara a mi clase con los numeros en cada instancia 
+objeto = funciones_calc.PresionarCalculadora()
+
 
 #------------------------ Fila1 ---------------------------------------------
 botonlog    = Button(miFrame, text = "1/x", width = 3)
@@ -34,38 +37,47 @@ botonDiv    = Button(miFrame, text = "➗", width = 3)
 botonDiv.place(x=175, y=45, height=30, width=35)
 
 #------------------------ Fila2 ---------------------------------------------
-objeto = funciones_calc.PresionarCalculadora("7")
-boton7      = Button(miFrame, text = "7", width = 3, command = lambda:funciones_calc.PresionarCalculadora.pushbutton7(objeto,numerosPantalla))
+boton7      = Button(miFrame, text = "7", width = 3, 
+    command = lambda:funciones_calc.PresionarCalculadora.pushbutton7(objeto,numerosPantalla))
 boton7.place(x=10, y=80, height=30, width=50) 
-boton8      = Button(miFrame, text = "8", width = 3)
+boton8      = Button(miFrame, text = "8", width = 3,
+    command = lambda:funciones_calc.PresionarCalculadora.pushbutton8(objeto,numerosPantalla))
 boton8.place(x=65, y=80, height=30, width=50) 
-boton9      = Button(miFrame, text = "9", width = 3)
+boton9      = Button(miFrame, text = "9", width = 3,
+    command = lambda:funciones_calc.PresionarCalculadora.pushbutton9(objeto,numerosPantalla))
 boton9.place(x=120, y=80, height=30, width=50)
 botonProd   = Button(miFrame, text = "*", width = 3)
 botonProd.place(x=175, y=80, height=30, width=35)
 
 #------------------------ Fila3 ---------------------------------------------
-boton4      = Button(miFrame, text = "4", width = 3)
+boton4      = Button(miFrame, text = "4", width = 3,
+    command = lambda:funciones_calc.PresionarCalculadora.pushbutton4(objeto,numerosPantalla))
 boton4.place(x=10, y=115, height=30, width=50) 
-boton5      = Button(miFrame, text = "5", width = 3)
+boton5      = Button(miFrame, text = "5", width = 3,
+    command = lambda:funciones_calc.PresionarCalculadora.pushbutton5(objeto,numerosPantalla))
 boton5.place(x=65, y=115, height=30, width=50) 
-boton6      = Button(miFrame, text = "6", width = 3)
+boton6      = Button(miFrame, text = "6", width = 3,
+    command = lambda:funciones_calc.PresionarCalculadora.pushbutton6(objeto,numerosPantalla))
 boton6.place(x=120, y=115, height=30, width=50)
 botonresta  = Button(miFrame, text = "-", width = 3)
 botonresta.place(x=175, y=115, height=30, width=35)
 
 #------------------------ Fila4 ---------------------------------------------
-boton1      = Button(miFrame, text = "1", width = 3)
+boton1      = Button(miFrame, text = "1", width = 3,
+    command = lambda:funciones_calc.PresionarCalculadora.pushbutton1(objeto,numerosPantalla))
 boton1.place(x=10, y=150, height=30, width=50) 
-boton2      = Button(miFrame, text = "2", width = 3)
+boton2      = Button(miFrame, text = "2", width = 3,
+    command = lambda:funciones_calc.PresionarCalculadora.pushbutton2(objeto,numerosPantalla))
 boton2.place(x=65, y=150, height=30, width=50) 
-boton3      = Button(miFrame, text = "3", width = 3)
+boton3      = Button(miFrame, text = "3", width = 3,
+    command = lambda:funciones_calc.PresionarCalculadora.pushbutton3(objeto,numerosPantalla))
 boton3.place(x=120, y=150, height=30, width=50)
 botonsuma   = Button(miFrame, text = "+", width = 3)
 botonsuma.place(x=175, y=150, height=30, width=35)
 
 #------------------------ Fila5 ---------------------------------------------
-boton1      = Button(miFrame, text = "0", width = 3)
+boton1      = Button(miFrame, text = "0", width = 3,
+    command = lambda:funciones_calc.PresionarCalculadora.pushbutton0(objeto,numerosPantalla))
 boton1.place(x=10, y=185, height=30, width=50) 
 boton2      = Button(miFrame, text = ".", width = 3)
 boton2.place(x=65, y=185, height=30, width=50) 
