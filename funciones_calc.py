@@ -15,6 +15,7 @@ class PresionarCalculadora():
         self.__boton8 = "8"
         self.__boton9 = "9"
         self.__boton0 = "0"
+        self.__botonP = "."
 
     # -------------------- numeros 1, 2 y 3 ---------------------------------------
     def pushbutton1(self, presionarboton):
@@ -46,8 +47,46 @@ class PresionarCalculadora():
     def pushbutton9(self, presionarboton):
         presionarboton.set(presionarboton.get() + self.__boton9)
     
-    # ------------------------- numeros 0 ----------------------------------------
+    # ------------------------- numeros 0 y Punto --------------------------------
     def pushbutton0(self, presionarboton):
-        presionarboton.set(presionarboton.get() + self.__boton0)
+        # Primero comprueba si esta vacio el campo
+        if len(presionarboton.get()) == 0:
+            pass
+        else:
+            presionarboton.set(presionarboton.get() + self.__boton0)
+    
+    def pushbuttonP(self, presionarboton):
+        # Primero comprueba si esta vacio el campo
+        if len(presionarboton.get()) == 0:
+            presionarboton.set(presionarboton.get() + "0" + self.__botonP)
+        else:
+            contador = 0
+            texto = str()
+            texto = presionarboton.get()
+            for i in texto:
+                if texto[i] == "." and contador == 1:
+                    pass
+                else:
+                    presionarboton.set(presionarboton.get() + self.__botonP)
+                    contador = 1
+    
+    #------------------------------ botones borrar -----------------------------
+    def pushbuttonB(self, presionarboton):
+        presionarboton.set("")
+    
+    # borrar caracter por caracter
+    def pushbuttonR(self, presionarboton):
+        if len(presionarboton.get()) == 0:
+            pass
+        else:
+            texto1 = str()
+            texto1 = presionarboton.get()
+            
+            texto2 = []
+            texto2 = list(texto1)
+            texto2.pop()
 
+            textoS = "".join(texto2)
+            
+            presionarboton.set(textoS)
 
