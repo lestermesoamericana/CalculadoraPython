@@ -1,6 +1,7 @@
 # aqui se pondran las funciones del teclado y se enviaran
 # a la pantalla que tenemos en el disenyo
 from tkinter import *
+import operaciones_calc
 
 class PresionarCalculadora():
 
@@ -19,46 +20,79 @@ class PresionarCalculadora():
 
     # -------------------- numeros 1, 2 y 3 ---------------------------------------
     def pushbutton1(self, presionarboton):
-        presionarboton.set(presionarboton.get() + self.__boton1)
+        ObjOp = operaciones_calc.OperacionesNumericas()
+        
+        if presionarboton.get() == "0.":
+            presionarboton.set(self.__boton1)
+        elif ObjOp.funcion_devolver() == "x":
+                presionarboton.set(presionarboton.get() + self.__boton1)
+        elif ObjOp.valorsuma == "suma":
+                presionarboton.set("")
+                #presionarboton.set(self.__boton1)
+            
     
     def pushbutton2(self, presionarboton):
-        presionarboton.set(presionarboton.get() + self.__boton2)
+        if presionarboton.get() == "0.":
+            presionarboton.set(self.__boton2)
+        else: 
+            presionarboton.set(presionarboton.get() + self.__boton2)
     
     def pushbutton3(self, presionarboton):
-        presionarboton.set(presionarboton.get() + self.__boton3)
+        if presionarboton.get() == "0.":
+            presionarboton.set(self.__boton3)
+        else: 
+            presionarboton.set(presionarboton.get() + self.__boton3)
 
     # -------------------- numeros 4, 5 y 6 ---------------------------------------
     def pushbutton4(self, presionarboton):
-        presionarboton.set(presionarboton.get() + self.__boton4)
+        if presionarboton.get() == "0.":
+            presionarboton.set(self.__boton4)
+        else: 
+            presionarboton.set(presionarboton.get() + self.__boton4)
     
     def pushbutton5(self, presionarboton):
-        presionarboton.set(presionarboton.get() + self.__boton5)
+        if presionarboton.get() == "0.":
+            presionarboton.set(self.__boton5)
+        else: 
+            presionarboton.set(presionarboton.get() + self.__boton5)
     
     def pushbutton6(self, presionarboton):
-        presionarboton.set(presionarboton.get() + self.__boton6)
+        if presionarboton.get() == "0.":
+            presionarboton.set(self.__boton6)
+        else: 
+            presionarboton.set(presionarboton.get() + self.__boton6)
 
     # -------------------- numeros 7, 8 y 9 ---------------------------------------
     def pushbutton7(self, presionarboton):
-        presionarboton.set(presionarboton.get() + self.__boton7)
+        if presionarboton.get() == "0.":
+            presionarboton.set(self.__boton7)
+        else: 
+            presionarboton.set(presionarboton.get() + self.__boton7)
     
     def pushbutton8(self, presionarboton):
-        presionarboton.set(presionarboton.get() + self.__boton8)
+        if presionarboton.get() == "0.":
+            presionarboton.set(self.__boton8)
+        else: 
+            presionarboton.set(presionarboton.get() + self.__boton8)
     
     def pushbutton9(self, presionarboton):
-        presionarboton.set(presionarboton.get() + self.__boton9)
+        if presionarboton.get() == "0.":
+            presionarboton.set(self.__boton9)
+        else: 
+            presionarboton.set(presionarboton.get() + self.__boton9)
     
     # ------------------------- numeros 0 y Punto --------------------------------
     def pushbutton0(self, presionarboton):
         # Primero comprueba si esta vacio el campo
-        if len(presionarboton.get()) == 0:
+        if len(presionarboton.get()) == 2 and presionarboton.get() == "0.":
             pass
         else:
             presionarboton.set(presionarboton.get() + self.__boton0)
     
     def pushbuttonP(self, presionarboton):
         # Primero comprueba si esta vacio el campo
-        if len(presionarboton.get()) == 0:
-            presionarboton.set(presionarboton.get() + "0" + self.__botonP)
+        if len(presionarboton.get()) == 2 and presionarboton.get() == "0.":
+            presionarboton.set("0" + self.__botonP)
         else:
             contador = 0
             texto = str()
@@ -72,7 +106,13 @@ class PresionarCalculadora():
     
     #------------------------------ botones borrar -----------------------------
     def pushbuttonB(self, presionarboton):
-        presionarboton.set("")
+        objOp = operaciones_calc.OperacionesNumericas()
+        valor = True
+        operaciones_calc.OperacionesNumericas.funcion_limpiar(objOp,valor,presionarboton)
+        presionarboton.set("0.")
+    
+    def pushbuttonL(self, presionarboton):
+        presionarboton.set("0.")
     
     # borrar caracter por caracter
     def pushbuttonR(self, presionarboton):
