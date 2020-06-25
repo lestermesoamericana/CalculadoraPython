@@ -24,74 +24,111 @@ class PresionarCalculadora():
         
         if presionarboton.get() == "0.":
             presionarboton.set(self.__boton1)
-        elif ObjOp.funcion_devolver() == "x":
-                presionarboton.set(presionarboton.get() + self.__boton1)
-        elif ObjOp.valorsuma == "suma":
-                presionarboton.set("")
-                #presionarboton.set(self.__boton1)
-            
+        elif presionarboton.get() != "0." and ObjOp.funcion_devolver():
+            presionarboton.set(presionarboton.get() + self.__boton1)
+        elif ObjOp.funcion_devolver() == True:
+            presionarboton.set(self.__boton1)            
     
     def pushbutton2(self, presionarboton):
+        ObjOp = operaciones_calc.OperacionesNumericas()
+        
         if presionarboton.get() == "0.":
             presionarboton.set(self.__boton2)
-        else: 
+        elif presionarboton.get() != "0." and ObjOp.funcion_devolver():
             presionarboton.set(presionarboton.get() + self.__boton2)
+        elif ObjOp.funcion_devolver() == True:
+            presionarboton.set(self.__boton2)   
     
     def pushbutton3(self, presionarboton):
+        ObjOp = operaciones_calc.OperacionesNumericas()
+        
         if presionarboton.get() == "0.":
             presionarboton.set(self.__boton3)
-        else: 
+        elif presionarboton.get() != "0." and ObjOp.funcion_devolver():
             presionarboton.set(presionarboton.get() + self.__boton3)
+        elif ObjOp.funcion_devolver() == True:
+            presionarboton.set(self.__boton3) 
 
     # -------------------- numeros 4, 5 y 6 ---------------------------------------
     def pushbutton4(self, presionarboton):
+        ObjOp = operaciones_calc.OperacionesNumericas()
+        
         if presionarboton.get() == "0.":
             presionarboton.set(self.__boton4)
-        else: 
+        elif presionarboton.get() != "0." and ObjOp.funcion_devolver():
             presionarboton.set(presionarboton.get() + self.__boton4)
+        elif ObjOp.funcion_devolver() == True:
+            presionarboton.set(self.__boton24 )  
     
     def pushbutton5(self, presionarboton):
+        ObjOp = operaciones_calc.OperacionesNumericas()
+        
         if presionarboton.get() == "0.":
             presionarboton.set(self.__boton5)
-        else: 
+        elif presionarboton.get() != "0." and ObjOp.funcion_devolver():
             presionarboton.set(presionarboton.get() + self.__boton5)
+        elif ObjOp.funcion_devolver() == True:
+            presionarboton.set(self.__boton5)   
     
     def pushbutton6(self, presionarboton):
+        ObjOp = operaciones_calc.OperacionesNumericas()
+        
         if presionarboton.get() == "0.":
             presionarboton.set(self.__boton6)
-        else: 
+        elif presionarboton.get() != "0." and ObjOp.funcion_devolver():
             presionarboton.set(presionarboton.get() + self.__boton6)
+        elif ObjOp.funcion_devolver() == True:
+            presionarboton.set(self.__boton6)  
 
     # -------------------- numeros 7, 8 y 9 ---------------------------------------
     def pushbutton7(self, presionarboton):
+        ObjOp = operaciones_calc.OperacionesNumericas()
+        
         if presionarboton.get() == "0.":
             presionarboton.set(self.__boton7)
-        else: 
+        elif presionarboton.get() != "0." and ObjOp.funcion_devolver():
             presionarboton.set(presionarboton.get() + self.__boton7)
+        elif ObjOp.funcion_devolver() == True:
+            presionarboton.set(self.__boton7) 
     
     def pushbutton8(self, presionarboton):
+        ObjOp = operaciones_calc.OperacionesNumericas()
+        
         if presionarboton.get() == "0.":
             presionarboton.set(self.__boton8)
-        else: 
+        elif presionarboton.get() != "0." and ObjOp.funcion_devolver():
             presionarboton.set(presionarboton.get() + self.__boton8)
+        elif ObjOp.funcion_devolver() == True:
+            presionarboton.set(self.__boton8)  
     
     def pushbutton9(self, presionarboton):
+        ObjOp = operaciones_calc.OperacionesNumericas()
+        
         if presionarboton.get() == "0.":
             presionarboton.set(self.__boton9)
-        else: 
+        elif presionarboton.get() != "0." and ObjOp.funcion_devolver():
             presionarboton.set(presionarboton.get() + self.__boton9)
+        elif ObjOp.funcion_devolver() == True:
+            presionarboton.set(self.__boton9)    
     
     # ------------------------- numeros 0 y Punto --------------------------------
     def pushbutton0(self, presionarboton):
+        ObjOp = operaciones_calc.OperacionesNumericas()
         # Primero comprueba si esta vacio el campo
         if len(presionarboton.get()) == 2 and presionarboton.get() == "0.":
             pass
         else:
-            presionarboton.set(presionarboton.get() + self.__boton0)
+            if presionarboton.get() != "0." and ObjOp.funcion_devolver():
+                presionarboton.set(presionarboton.get() + self.__boton9)
+            elif ObjOp.funcion_devolver() == True:
+                presionarboton.set(self.__boton9) 
     
     def pushbuttonP(self, presionarboton):
+        ObjOp = operaciones_calc.OperacionesNumericas()
         # Primero comprueba si esta vacio el campo
-        if len(presionarboton.get()) == 2 and presionarboton.get() == "0.":
+        if len(presionarboton.get()) == 2 and presionarboton.get() == "0." and ObjOp.contador == 0:
+            presionarboton.set("0" + self.__botonP)
+        elif len(presionarboton.get()) == 2 and presionarboton.get() == "0." and ObjOp.contador == 1:
             presionarboton.set("0" + self.__botonP)
         else:
             contador = 0

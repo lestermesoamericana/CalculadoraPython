@@ -56,7 +56,8 @@ boton9      = Button(miFrame, text = "9", width = 3,
 boton9.place(x=120, y=80, height=30, width=50)
 
 # Multiplicacion
-botonProd   = Button(miFrame, text = "*", width = 3)
+botonProd   = Button(miFrame, text = "*", width = 3,
+    command = lambda:operaciones_calc.OperacionesNumericas.funcion_prod(objetoOperaciones,numerosPantalla))
 botonProd.place(x=175, y=80, height=30, width=35)
 
 #------------------------ Fila3 ---------------------------------------------
@@ -71,7 +72,8 @@ boton6      = Button(miFrame, text = "6", width = 3,
 boton6.place(x=120, y=115, height=30, width=50)
 
 # Resta
-botonresta  = Button(miFrame, text = "-", width = 3)
+botonresta  = Button(miFrame, text = "-", width = 3,
+    command = lambda:operaciones_calc.OperacionesNumericas.funcion_resta(objetoOperaciones,numerosPantalla))
 botonresta.place(x=175, y=115, height=30, width=35)
 
 #------------------------ Fila4 ---------------------------------------------
