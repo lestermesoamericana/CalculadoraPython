@@ -1,14 +1,14 @@
 # aqui pondremos nuestras distintas operaciones numericas
 
 from tkinter import *
-
+import valor_retorno
 class OperacionesNumericas():
     
     def __init__(self):
         self.resultado  = 0.0
         self.contador   = 0
         # propiedades
-        self.valorsuma  = True
+        self.valorsuma  = False
         self.valorresta = False
         self.valorprod  = False
         self.valordivi  = False
@@ -41,7 +41,7 @@ class OperacionesNumericas():
             else:
                 self.resultado -= float(pantalla.get())
                 pantalla.set(self.resultado)
-            self.contador = 1
+            self.contador   = True
             self.valorsuma  = False
             self.valorresta = True
             self.valorprod  = False
@@ -59,11 +59,12 @@ class OperacionesNumericas():
             else:
                 self.resultado *= float(pantalla.get())
                 pantalla.set(self.resultado)
-            self.contador = 1
+            self.contador   = True
             self.valorsuma  = False
             self.valorresta = False
             self.valorprod  = True
             self.valordivi  = False
+
 
     # -------------------------------- Division --------------------------------
     '''
@@ -103,14 +104,14 @@ class OperacionesNumericas():
         if self.valorresta:
             self.resultado -= float(pantalla.get())
             pantalla.set(str(self.resultado))
-            self.contador = 0
+            self.contador = True
             self.resultado = 0.0
             self.valorsuma = False
 
         if self.valorprod:
             self.resultado *= float(pantalla.get())
             pantalla.set(str(self.resultado))
-            self.contador = 0
+            self.contador = True
             self.resultado = 0.0
             self.valorprod = False
         '''
@@ -129,18 +130,8 @@ class OperacionesNumericas():
     def funcion_limpiar(self, valor, pantalla):
         if valor:
             self.resultado = 0.0
+    # metodo
+    def funcion_reestablecer(self):
+        self.contador = 0
     
-    # --------------------------------- Valor ---------------------------------
     
-    def funcion_devolver(self):
-        if self.valorsuma:
-            return self.valorsuma
-        if self.valorresta:
-            return self.valorresta
-        if self.valorprod:
-            return self.valorprod
-        else:
-            return False
-    
-        
-

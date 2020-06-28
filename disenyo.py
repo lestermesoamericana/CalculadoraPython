@@ -89,7 +89,7 @@ boton3.place(x=120, y=150, height=30, width=50)
 
 # suma
 botonsuma   = Button(miFrame, text = "+", width = 3,
-    command = lambda:operaciones_calc.OperacionesNumericas.funcion_suma(objetoOperaciones,numerosPantalla))
+    command = lambda:operaciones_calc.OperacionesNumericas.funcion_suma(objetoOperaciones, numerosPantalla))
 botonsuma.place(x=175, y=150, height=30, width=35)
 
 #------------------------ Fila5 ---------------------------------------------

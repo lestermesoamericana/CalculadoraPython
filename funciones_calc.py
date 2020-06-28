@@ -2,6 +2,7 @@
 # a la pantalla que tenemos en el disenyo
 from tkinter import *
 import operaciones_calc
+import valor_retorno
 
 class PresionarCalculadora():
 
@@ -24,20 +25,34 @@ class PresionarCalculadora():
         
         if presionarboton.get() == "0.":
             presionarboton.set(self.__boton1)
-        elif presionarboton.get() != "0." and ObjOp.funcion_devolver():
+        elif presionarboton.get() != "0." and ObjOp.funcion_devolver() == False:
             presionarboton.set(presionarboton.get() + self.__boton1)
-        elif ObjOp.funcion_devolver() == True:
-            presionarboton.set(self.__boton1)            
+        elif presionarboton.get() != "0." and ObjOp.funcion_devolver == True:
+            presionarboton.set(self.__boton1)
+            
+        '''
+        elif ObjOp.contador == 1:
+            presionarboton.set(self.__boton8)
+            ObjOp.funcion_restablecer()
+        
+        elif presionarboton.get() != "0." and ObjOp.contador == 1:
+            presionarboton.set(self.__boton1)
+        '''
+            
+        '''
+        elif presionarboton.get() != "0." and ObjOp.funcion_devolver() == True:
+            presionarboton.set(presionarboton.get() + self.__boton1)          
     
     def pushbutton2(self, presionarboton):
         ObjOp = operaciones_calc.OperacionesNumericas()
         
         if presionarboton.get() == "0.":
             presionarboton.set(self.__boton2)
-        elif presionarboton.get() != "0." and ObjOp.funcion_devolver():
+        elif presionarboton.get() != "0." and ObjOp.contador == 0:
             presionarboton.set(presionarboton.get() + self.__boton2)
-        elif ObjOp.funcion_devolver() == True:
-            presionarboton.set(self.__boton2)   
+        elif ObjOp.valorsuma == True:
+            presionarboton.set(self.__boton2)
+            ObjOp.funcion_reestablecer()
     
     def pushbutton3(self, presionarboton):
         ObjOp = operaciones_calc.OperacionesNumericas()
@@ -58,7 +73,7 @@ class PresionarCalculadora():
         elif presionarboton.get() != "0." and ObjOp.funcion_devolver():
             presionarboton.set(presionarboton.get() + self.__boton4)
         elif ObjOp.funcion_devolver() == True:
-            presionarboton.set(self.__boton24 )  
+            presionarboton.set(self.__boton4)  
     
     def pushbutton5(self, presionarboton):
         ObjOp = operaciones_calc.OperacionesNumericas()
@@ -140,7 +155,7 @@ class PresionarCalculadora():
                 else:
                     presionarboton.set(presionarboton.get() + self.__botonP)
                     contador = 1
-    
+    '''
     #------------------------------ botones borrar -----------------------------
     def pushbuttonB(self, presionarboton):
         objOp = operaciones_calc.OperacionesNumericas()
@@ -166,4 +181,5 @@ class PresionarCalculadora():
             textoS = "".join(texto2)
             
             presionarboton.set(textoS)
+    
 
