@@ -1,12 +1,12 @@
 # aqui pondremos nuestras distintas operaciones numericas
 
 from tkinter import *
-import valor_retorno
+
 class OperacionesNumericas():
     
-    def __init__(self):
+    def __init__(self, operador):
         self.resultado  = 0.0
-        self.contador   = 0
+        self.operador   = operador
         # propiedades
         self.valorsuma  = False
         self.valorresta = False
@@ -15,11 +15,11 @@ class OperacionesNumericas():
 
     # ---------------------------------- Suma ----------------------------------
     def funcion_suma(self, pantalla):
-        if pantalla.get() == "0.":
+        if pantalla.get() == "0." and self.operador == "":
             pass
         elif len(pantalla.get()) == 0:
             pass
-        else:
+        elif self.operador == "+":
             self.resultado += float(pantalla.get())
             pantalla.set(self.resultado)
             self.contador   = 1
@@ -27,7 +27,7 @@ class OperacionesNumericas():
             self.valorresta = False
             self.valorprod  = False
             self.valordivi  = False
-    
+    '''
     # --------------------------------- Resta ----------------------------------
     
     def funcion_resta(self, pantalla):
@@ -67,7 +67,7 @@ class OperacionesNumericas():
 
 
     # -------------------------------- Division --------------------------------
-    '''
+
     def funcion_division(self, pantalla):
         if pantalla.get() == "0.":
             pass
