@@ -4,14 +4,16 @@ from tkinter import *
 
 class OperacionesNumericas():
     
-    def __init__(self, operador):
+    def __init__(self):
         self.resultado  = 0.0
-        self.operador   = operador
+        self.operador   = ""
         # propiedades
+        self.contador   = 0
         self.valorsuma  = False
         self.valorresta = False
         self.valorprod  = False
         self.valordivi  = False
+        return
 
     # ---------------------------------- Suma ----------------------------------
     def funcion_suma(self, pantalla):
@@ -19,15 +21,24 @@ class OperacionesNumericas():
             pass
         elif len(pantalla.get()) == 0:
             pass
-        elif self.operador == "+":
-            self.resultado += float(pantalla.get())
-            pantalla.set(self.resultado)
-            self.contador   = 1
+        elif self.operador == "":
+            self.resultado = float(pantalla.get())
+            pantalla.set("")
+            self.operador   = "+"
             self.valorsuma  = True
             self.valorresta = False
             self.valorprod  = False
             self.valordivi  = False
-    '''
+        elif self.operador != "":
+            self.resultado += float(pantalla.get())
+            pantalla.set("")
+            self.operador   = "+"
+            self.valorsuma  = True
+            self.valorresta = False
+            self.valorprod  = False
+            self.valordivi  = False
+        return
+    
     # --------------------------------- Resta ----------------------------------
     
     def funcion_resta(self, pantalla):
@@ -38,14 +49,17 @@ class OperacionesNumericas():
         else:
             if self.contador == 0:
                 self.resultado = float(pantalla.get())
+                pantalla.set("")
+                self.contador = 1
             else:
                 self.resultado -= float(pantalla.get())
-                pantalla.set(self.resultado)
-            self.contador   = True
+                pantalla.set("")
+            self.operador   = "-"
             self.valorsuma  = False
             self.valorresta = True
             self.valorprod  = False
             self.valordivi  = False
+            return
     
     # -------------------------------- Producto --------------------------------
     def funcion_prod(self, pantalla):
@@ -56,15 +70,16 @@ class OperacionesNumericas():
         else:
             if self.contador == 0:
                 self.resultado = float(pantalla.get())
+                pantalla.set("")
+                self.contador = 1
             else:
                 self.resultado *= float(pantalla.get())
-                pantalla.set(self.resultado)
-            self.contador   = True
+                pantalla.set("")
             self.valorsuma  = False
             self.valorresta = False
             self.valorprod  = True
             self.valordivi  = False
-
+        return
 
     # -------------------------------- Division --------------------------------
 
@@ -78,12 +93,12 @@ class OperacionesNumericas():
         else:
             self.resultado = float(pantalla.get())
             pantalla.set("")
-            self.contador = 1
             self.valorsuma  = False
             self.valorresta = False
             self.valorprod  = False
             self.valordivi  = True
-    '''        
+        return
+           
     
     # --------------------------------- Igual ---------------------------------
     def igual(self, pantalla):
@@ -96,25 +111,26 @@ class OperacionesNumericas():
         
         if self.valorsuma:
             self.resultado += float(pantalla.get())
-            pantalla.set(str(self.resultado))
-            self.contador = 0
-            self.resultado = 0.0
-            self.valorsuma = False
+            pantalla.set(self.resultado)
+            self.contador   = 0
+            self.resultado  = 0.0
+            self.valorsuma  = False
+            self.operador   = "" 
         
         if self.valorresta:
             self.resultado -= float(pantalla.get())
-            pantalla.set(str(self.resultado))
+            pantalla.set(self.resultado)
             self.contador = True
             self.resultado = 0.0
             self.valorsuma = False
 
         if self.valorprod:
             self.resultado *= float(pantalla.get())
-            pantalla.set(str(self.resultado))
+            pantalla.set(self.resultado)
             self.contador = True
             self.resultado = 0.0
             self.valorprod = False
-        '''
+        
         if self.valordivi:
             if pantalla.get() == "0":
                 pantalla.set("Error")
@@ -124,14 +140,20 @@ class OperacionesNumericas():
                 pantalla.set(str(__VariableTemp/__variableDiv))
                 self.contador = 0
                 self.valordivi = False
-    '''
+        return
     
     # -------------------------------- Borrar --------------------------------
     def funcion_limpiar(self, valor, pantalla):
         if valor:
             self.resultado = 0.0
+        return
     # metodo
     def funcion_reestablecer(self):
-        self.contador = 0
+        self.operador = ""
+        return
     
+    # ------------------------------- devolver -------------------------------
+    def getOperador(self):
+        return self.operador
+
     

@@ -24,7 +24,7 @@ pantalla.place(x=10, y=10, height=30, width=200)
 # el objeto que llamara a mi clase con los numeros en cada instancia
 # y el objeto que realizara las operaciones 
 objeto  = PresionarCalculadora()
-objeto2 = OperacionesNumericas("")
+objeto2 = OperacionesNumericas()
 numerosPantalla.set("0.")
 
 #------------------------ Fila1 ---------------------------------------------
@@ -56,7 +56,8 @@ boton9      = Button(miFrame, text = "9", width = 3,
 boton9.place(x=120, y=80, height=30, width=50)
 
 # Multiplicacion
-botonProd   = Button(miFrame, text = "*", width = 3)
+botonProd   = Button(miFrame, text = "*", width = 3,
+    command = lambda : objeto2.funcion_prod(numerosPantalla))
 botonProd.place(x=175, y=80, height=30, width=35)
 
 #------------------------ Fila3 ---------------------------------------------
@@ -71,7 +72,8 @@ boton6      = Button(miFrame, text = "6", width = 3,
 boton6.place(x=120, y=115, height=30, width=50)
 
 # Resta
-botonresta  = Button(miFrame, text = "-", width = 3)
+botonresta  = Button(miFrame, text = "-", width = 3,
+    command = lambda : objeto2.funcion_resta(numerosPantalla))
 botonresta.place(x=175, y=115, height=30, width=35)
 
 #------------------------ Fila4 ---------------------------------------------
@@ -86,9 +88,8 @@ boton3      = Button(miFrame, text = "3", width = 3,
 boton3.place(x=120, y=150, height=30, width=50)
 
 # suma
-objetoS = OperacionesNumericas("+")
 botonsuma   = Button(miFrame, text = "+", width = 3,
-    command = lambda : objetoS.funcion_suma(numerosPantalla))
+    command = lambda : objeto2.funcion_suma(numerosPantalla))
 botonsuma.place(x=175, y=150, height=30, width=35)
 
 #------------------------ Fila5 ---------------------------------------------
@@ -102,7 +103,8 @@ boton3      = Button(miFrame, text = "%", width = 3)
 boton3.place(x=120, y=185, height=30, width=50)
 
 # boton igual
-botonigual  = Button(miFrame, text = "=", width = 3)
+botonigual  = Button(miFrame, text = "=", width = 3,
+    command = lambda : objeto2.igual(numerosPantalla))
 botonigual.place(x=175, y=185, height=30, width=35)
 
 # Final del codigo
